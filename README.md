@@ -45,6 +45,7 @@ Visit the live example: https://api.haidar.dev
   - Don't show the password
 - Get user by id
   - Don't show the password
+- Search users by name
 - Remove all users
 
 ## REST API Specification
@@ -56,6 +57,7 @@ Visit the live example: https://api.haidar.dev
 | `/users/login`         | `POST`   | Login to existing user |
 | `/users`               | `GET`    | Get all users          |
 | `/users/:id`           | `GET`    | Get one user by id     |
+| `/users/search?name=`  | `GET`    | Search user by name    |
 | `/users`               | `DELETE` | Remove all users       |
 
 ## Scripts

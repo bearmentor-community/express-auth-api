@@ -36,9 +36,21 @@ module.exports = {
     })
   },
 
+  searchByName: (req, res, next) => {
+    const name = req.query.name
+    const data = usersSeed.filter((user) => {
+      return user.name.toLowerCase().includes(name.toLowerCase())
+    })
+
+    res.send({
+      message: `Searched user by name`,
+      data: data,
+    })
+  },
+
   removeAll: (req, res, next) => {
     res.send({
-      message: `Remove all users`,
+      message: `Removed all users`,
     })
   },
 }
