@@ -38,14 +38,23 @@ module.exports = {
 
   searchByName: (req, res, next) => {
     const name = req.query.name
-    const data = usersSeed.filter((user) => {
-      return user.name.toLowerCase().includes(name.toLowerCase())
-    })
 
-    res.send({
-      message: `Searched user by name`,
-      data: data,
-    })
+    if (name) {
+      const data = usersSeed.filter((user) => {
+        return user.name.toLowerCase().includes(name.toLowerCase())
+      })
+
+      res.send({
+        message: `Searched user by name`,
+        name: name,
+        data: data,
+      })
+    } else {
+      res.send({
+        message: `User is not found`,
+        name: name,
+      })
+    }
   },
 
   removeAll: (req, res, next) => {
