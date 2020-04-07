@@ -63,6 +63,12 @@ yarn dev
 yarn start
 ```
 
+### Run Test Suite
+
+```sh
+yarn test
+```
+
 ## License
 
 MIT
