@@ -1,6 +1,6 @@
 # Project Example: Auth with Express
 
-![Travis CI](https://travis-ci.org/mhaidarh/project-auth-express.svg?branch=master)
+[![Travis CI](https://travis-ci.org/mhaidarh/project-auth-express.svg?branch=master)](https://travis-ci.org/github/mhaidarh/project-auth-express)
 
 Visit the live example: https://api.haidar.dev
 
