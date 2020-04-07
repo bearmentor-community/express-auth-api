@@ -33,13 +33,14 @@ Visit the live example: https://api.haidar.dev
 
 #### Development
 
-Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.
+Run the `setup.sh` script first, to copy `.env.schema` into `.env`.
 
 ```sh
-./create-env.sh
+./setup.sh
 ```
 
-Then you fill the `env` variables. Remember to install and make sure MongoDB is running on your machine.
+Then you fill the variables in `.env` file.
+Remember to install and make sure MongoDB is running on your machine.
 
 ```txt
 MONGODB_URI=mongodb://localhost:27017
