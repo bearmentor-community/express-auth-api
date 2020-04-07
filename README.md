@@ -2,6 +2,12 @@
 
 Visit the live example: https://api.haidar.dev
 
+## Links
+
+- Production: https://api.haidar.dev
+- Netlify: https://api-haidar-dev.herokuapp.com
+- App Engine: https://api-haidar-dev.REGION.r.appspot.com
+
 ## Stack
 
 - REST API
@@ -16,7 +22,7 @@ Visit the live example: https://api.haidar.dev
   - Later: MySQL, Sequelize, and MySQL instance
 - Heroku
   - Later: Amazon EBS
-  - Later: Google Compute Engine
+  - Later: Google App Engine
 - Cloudflare
 
 ## License
