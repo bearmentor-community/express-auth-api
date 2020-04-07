@@ -25,6 +25,26 @@ Visit the live example: https://api.haidar.dev
   - Later: Google App Engine
 - Cloudflare
 
+## Scripts
+
+### Install Dependencies
+
+```sh
+yarn
+```
+
+### Run Development Server
+
+```sh
+yarn dev
+```
+
+### Run Production Server
+
+```sh
+yarn start
+```
+
 ## License
 
 MIT
