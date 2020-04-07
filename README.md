@@ -26,6 +26,35 @@ Visit the live example: https://api.haidar.dev
   - Later: Amazon EBS
   - Later: Google App Engine
 - Cloudflare
+- Swagger
+
+## Features
+
+- Seed new users
+- Register new user
+  - Name
+  - Email
+  - Password encrypted using bcrypt
+- Login to existing user
+  - Email
+  - Password
+  - Authorization token with JWT
+- Get all users
+  - Don't show the password
+- Get user by id
+  - Don't show the password
+- Remove all users
+
+## REST API Specification
+
+| Endpoint               | HTTP     | Description            |
+| ---------------------- | -------- | ---------------------- |
+| `/users/register/seed` | `POST`   | Seed new users         |
+| `/users/register`      | `POST`   | Register new user      |
+| `/users/login`         | `POST`   | Login to existing user |
+| `/users`               | `GET`    | Get all users          |
+| `/users/:id`           | `GET`    | Get one user by id     |
+| `/users`               | `DELETE` | Remove all users       |
 
 ## Scripts
 
