@@ -8,7 +8,9 @@ Visit the live example: https://api.haidar.dev
 
 - Production: https://api.haidar.dev
 - Heroku: https://api-haidar-dev.herokuapp.com
-- App Engine: https://api-haidar-dev.REGION.r.appspot.com
+  - Dashboard: https://dashboard.heroku.com/apps/api-haidar-dev
+- Google App Engine: https://api-haidar-dev.REGION.r.appspot.com
+- Amazon EBS: https://api-haidar-dev.example.com
 
 ## Stack
 
@@ -107,6 +109,12 @@ yarn start
 
 ```sh
 yarn test
+```
+
+### Debug Production on Heroku
+
+```sh
+heroku logs --tail -a api-haidar-dev
 ```
 
 ## License
