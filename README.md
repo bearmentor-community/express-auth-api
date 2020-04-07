@@ -1,5 +1,7 @@
 # Project Example: Auth with Express
 
+![Travis CI](https://travis-ci.org/mhaidarh/project-auth-express.svg?branch=master)
+
 Visit the live example: https://api.haidar.dev
 
 ## Links
