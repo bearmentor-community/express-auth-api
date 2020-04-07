@@ -1,2 +1,5 @@
-# project-auth-express
-Project Example: Auth with Express
+# Project Example: Auth with Express
+
+## License
+
+MIT
