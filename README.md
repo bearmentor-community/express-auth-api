@@ -31,6 +31,8 @@ Visit the live example: https://api.haidar.dev
 
 ### Setup Environment Variables
 
+#### Development
+
 Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.
 
 ```sh
@@ -40,11 +42,17 @@ Run the `create-env.sh` script first, to copy `.env.schema` into `.env`.
 Then you fill the `env` variables. Remember to install and make sure MongoDB is running on your machine.
 
 ```txt
-HOST=localhost
-PORT=8000
 MONGODB_URI=mongodb://localhost:27017
 MONGODB_DB_NAME=project-auth-express
 JWT_SECRET=this_is_your_secret
+```
+
+#### Production
+
+```
+MONGODB_URI=mongodb://urltomongodb.com:27017
+MONGODB_DB_NAME=project-auth-express
+JWT_SECRET=this_is_your_other_secret
 ```
 
 ### Install Dependencies
