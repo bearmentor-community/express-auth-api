@@ -42,3 +42,43 @@ UserSchema.plugin(AutoIncrement, {
 const User = mongoose.model('User', UserSchema)
 
 module.exports = User
+
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      User:
+ *        type: object
+ *        required:
+ *          - name
+ *          - email
+ *          - password
+ *        properties:
+ *          _id:
+ *            type: string
+ *          id:
+ *            type: integer
+ *          __v:
+ *            type: integer
+ *          name:
+ *            type: string
+ *            description: Full name of the user, just alphabets
+ *          email:
+ *            type: string
+ *            format: email
+ *            description: Email for the user, needs to be unique
+ *          salt:
+ *            type: string
+ *            description: Salt of the password
+ *          password:
+ *            type: string
+ *            description: Password, will be encrypted
+ *          createdAt:
+ *            type: date
+ *          updatedAt:
+ *            type: date
+ *        example:
+ *           name: John Doe
+ *           email: john@doe.com
+ *           password: johndoe0
+ */
