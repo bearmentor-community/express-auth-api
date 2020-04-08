@@ -2,6 +2,9 @@
   "name": "project-auth-express",
   "version": "1.0.0",
   "private": true,
+  "author": "M Haidar Hanif <tech@mhaidarhanif.com>",
+  "description": "Project Auth Express",
+  "license": "MIT",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
@@ -18,7 +21,9 @@
     "jsonwebtoken": "8.5.1",
     "mongoose": "5.9.7",
     "mongoose-sequence": "5.2.2",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "swagger-jsdoc": "4.0.0",
+    "swagger-ui-express": "4.1.4"
   },
   "devDependencies": {
     "eslint": "6.8.0",

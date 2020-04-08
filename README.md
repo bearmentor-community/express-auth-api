@@ -2,11 +2,13 @@
 
 [![Travis CI](https://travis-ci.org/mhaidarh/project-auth-express.svg?branch=master)](https://travis-ci.org/github/mhaidarh/project-auth-express)
 
-Visit the live example: https://api.haidar.dev
+- Visit the live API: https://api.haidar.dev
+- Visit the live documentation: https://api.haidar.dev/docs
 
 ## Links
 
 - Production: https://api.haidar.dev
+  - Docs: https://api.haidar.dev/docs
 - Heroku: https://api-haidar-dev.herokuapp.com
   - Dashboard: https://dashboard.heroku.com/apps/api-haidar-dev
 - Google App Engine: https://api-haidar-dev.REGION.r.appspot.com
@@ -22,14 +24,15 @@ Visit the live example: https://api.haidar.dev
   - JWT
 - Debug
 - Morgan
+- Postman
+- Swagger
 - MongoDB, Mongoose, and mLab
   - Later: MySQL, Sequelize, and MySQL instance
 - Heroku
   - Later: Amazon EBS
   - Later: Google App Engine
 - Cloudflare
-- Postman
-- Swagger
+- Uniregistry
 
 ## Features
 
@@ -50,6 +53,8 @@ Visit the live example: https://api.haidar.dev
 - Remove all users
 
 ## REST API Specification
+
+Swagger URL: https://api.haidar.dev/docs
 
 | Endpoint              | HTTP     | Description                    |
 | --------------------- | -------- | ------------------------------ |
@@ -122,6 +127,10 @@ yarn test
 ```sh
 heroku logs --tail -a api-haidar-dev
 ```
+
+## References
+
+- [Swagger: Time to document that Express API you built!](https://levelup.gitconnected.com/swagger-time-to-document-that-express-api-you-built-9b8faaeae563)
 
 ## License
 
