@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Tony Stark",
+    "email": "tony@stark.com",
+    "password": "ironman0"
+  },
+  {
+    "name": "Steve Rogers",
+    "email": "captain@america.gov",
+    "password": "captaincaptain0"
+  },
+  {
+    "name": "Peter Parker",
+    "email": "peter@spiderman.com",
+    "password": "spiderspider0"
+  },
+  {
+    "name": "Natasha Romanov",
+    "email": "natasha@romanov",
+    "password": "blackwidow0"
+  },
+  {
+    "name": "Thor Odinson",
+    "email": "thor@asgard.org",
+    "password": "asgardians0"
+  },
+  {
+    "name": "Carol Danvers",
+    "email": "captain@universe.com",
+    "password": "captainmarvel0"
+  },
+  {
+    "name": "T'Challa",
+    "email": "king@wakanda.gov",
+    "password": "blackpanther0"
+  }
+]

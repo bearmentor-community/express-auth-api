@@ -10,6 +10,9 @@ router.post('/register', auth.isUserExist, users.register)
 // (POST) Login to user
 router.post('/login', users.login)
 
+// (POST) Seed initial users
+router.post('/seed', users.seedUsers)
+
 // (GET) Validate user with its token
 router.get('/validate', auth.isAuthenticated, users.validateUser)
 

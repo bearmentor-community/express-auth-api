@@ -57,6 +57,7 @@ Visit the live example: https://api.haidar.dev
 | `/users/login`        | `POST`   | Login to existing user         |
 | `/users/validate`     | `GET`    | Validate user with its token   |
 | `/users/profile`      | `GET`    | Get authenticated user profile |
+| `/users/seed`         | `POST`   | Seed initial users             |
 | `/users`              | `GET`    | Get all users                  |
 | `/users/:id`          | `GET`    | Get one user by id             |
 | `/users/search?name=` | `GET`    | Search user by name            |

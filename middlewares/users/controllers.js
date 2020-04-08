@@ -3,6 +3,8 @@ const User = require('./model')
 const bcrypt = require('../../utils/bcrypt')
 const jwt = require('../../utils/jwt')
 
+const seedUsersData = require('./seed.json')
+
 const usersControllers = {
   //////////////////////////////////////////////////////////////////////////////
   // REGISTER NEW USER
@@ -230,6 +232,38 @@ const usersControllers = {
     } else {
       res.status(400).send({
         message: 'User is invalid without verified token',
+      })
+    }
+  },
+
+  //////////////////////////////////////////////////////////////////////////////
+  // SEED USERS
+  seedUsers: async (req, res) => {
+    const foundUser = await User.findOne({ email: seedUsersData[0].email })
+
+    if (!foundUser) {
+      await seedUsersData.forEach(async (user) => {
+        if (!foundUser) {
+          const { salt, encryptedPassword } = await bcrypt.encryptPassword(
+            user.password
+          )
+          const newUser = {
+            name: user.name,
+            email: user.email,
+            salt: salt,
+            password: encryptedPassword,
+          }
+          await User.create(newUser)
+        }
+      })
+
+      res.status(200).send({
+        message: 'Seed initial users completed',
+      })
+    } else {
+      res.status(500).send({
+        message:
+          'Failed to seed initial users because they are already registered',
       })
     }
   },
