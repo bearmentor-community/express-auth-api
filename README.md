@@ -28,6 +28,7 @@ Visit the live example: https://api.haidar.dev
   - Later: Amazon EBS
   - Later: Google App Engine
 - Cloudflare
+- Postman
 - Swagger
 
 ## Features
@@ -50,15 +51,17 @@ Visit the live example: https://api.haidar.dev
 
 ## REST API Specification
 
-| Endpoint               | HTTP     | Description            |
-| ---------------------- | -------- | ---------------------- |
-| `/users/register/seed` | `POST`   | Seed new users         |
-| `/users/register`      | `POST`   | Register new user      |
-| `/users/login`         | `POST`   | Login to existing user |
-| `/users`               | `GET`    | Get all users          |
-| `/users/:id`           | `GET`    | Get one user by id     |
-| `/users/search?name=`  | `GET`    | Search user by name    |
-| `/users`               | `DELETE` | Remove all users       |
+| Endpoint              | HTTP     | Description                    |
+| --------------------- | -------- | ------------------------------ |
+| `/users/register`     | `POST`   | Register new user              |
+| `/users/login`        | `POST`   | Login to existing user         |
+| `/users/validate`     | `GET`    | Validate user with its token   |
+| `/users/profile`      | `GET`    | Get authenticated user profile |
+| `/users`              | `GET`    | Get all users                  |
+| `/users/:id`          | `GET`    | Get one user by id             |
+| `/users/search?name=` | `GET`    | Search user by name            |
+| `/users`              | `DELETE` | Delete all users               |
+| `/users/:id`          | `DELETE` | Delete one user by id          |
 
 ## Scripts
 
