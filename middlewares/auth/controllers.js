@@ -42,7 +42,7 @@ const authControllers = {
       next()
     } else {
       res.status(409).send({
-        message: 'You are already registered',
+        message: 'Your email is already registered',
         error: 'User is already exist with that email',
       })
     }
