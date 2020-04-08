@@ -24,7 +24,7 @@ app.use('/', indexMiddleware)
 app.use('/users', usersMiddleware)
 
 const swaggerDocument = YAML.load('./docs/swagger.yaml')
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message
