@@ -28,28 +28,19 @@ paths:
         - 'application/json'
       responses:
         200:
-          description: 'successful operation'
+          description: 'Got index'
   /users/seed:
     post:
       tags:
         - 'user'
-      summary: 'Creates list of users with given input array'
+      summary: 'Seed inital users data'
       description: ''
-      operationId: 'createUsersWithArrayInput'
+      operationId: 'seedUsers'
       produces:
         - 'application/json'
-      parameters:
-        - in: 'body'
-          name: 'body'
-          description: 'List of user object'
-          required: true
-          schema:
-            type: 'array'
-            items:
-              $ref: '#/definitions/NewUser'
       responses:
         200:
-          description: 'Successfully seed users'
+          description: 'Seed initial users'
   /users/register:
     post:
       tags:
@@ -67,7 +58,7 @@ paths:
             $ref: '#/definitions/NewUser'
       responses:
         '200':
-          description: 'successful operation'
+          description: 'Registered new user'
   /users/login:
     post:
       tags:
@@ -92,7 +83,7 @@ paths:
                 example: 'haidarhaidar'
       responses:
         200:
-          description: 'successful operation'
+          description: 'Logged in to existing user'
   /users/validate:
     get:
       tags:
@@ -104,7 +95,7 @@ paths:
         - 'application/json'
       responses:
         200:
-          description: 'successful operation'
+          description: 'Validated authenticated user'
       security:
         - JWT: []
   /users/profile:
@@ -118,7 +109,7 @@ paths:
         - 'application/json'
       responses:
         200:
-          description: 'successful operation'
+          description: 'Get user profile'
       security:
         - JWT: []
   /users/search:
@@ -132,7 +123,7 @@ paths:
         - 'application/json'
       responses:
         200:
-          description: 'successful operation'
+          description: 'Searched user by name'
       parameters:
         - name: 'name'
           in: 'query'
@@ -149,12 +140,12 @@ paths:
         - 'application/json'
       responses:
         200:
-          description: 'Success'
+          description: 'Got all users'
     delete:
       tags:
         - 'user'
       summary: 'Delete all sers'
-      operationId: 'deleteALlUsers'
+      operationId: 'deleteAllUsers'
       produces:
         - 'application/json'
       parameters:
@@ -164,10 +155,8 @@ paths:
           required: true
           type: 'string'
       responses:
-        400:
-          description: 'Invalid username supplied'
-        404:
-          description: 'User not found'
+        200:
+          description: 'Deleted all users'
       security:
         - JWT: []
   /users/{id}:
@@ -187,18 +176,16 @@ paths:
           type: 'integer'
       responses:
         200:
-          description: 'successful operation'
+          description: 'Got one user by id'
           schema:
             $ref: '#/definitions/User'
-        400:
-          description: 'Invalid username supplied'
         404:
-          description: 'User not found'
+          description: 'Failed to get. User by id not found'
     delete:
       tags:
         - 'user'
       summary: 'Delete user'
-      operationId: 'deleteUser'
+      operationId: 'deleteUserById'
       produces:
         - 'application/json'
       parameters:
@@ -208,10 +195,10 @@ paths:
           required: true
           type: 'integer'
       responses:
-        400:
-          description: 'Invalid username supplied'
+        200:
+          description: 'Deleted one user by id'
         404:
-          description: 'User not found'
+          description: 'Failed to delete. User by id not found'
       security:
         - JWT: []
 definitions:
