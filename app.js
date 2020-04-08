@@ -7,7 +7,7 @@ const logger = require('morgan')
 const cors = require('cors')
 
 const swaggerUi = require('swagger-ui-express')
-const swaggerDocument = require('./docs/swagger.json')
+const YAML = require('yamljs')
 
 const indexMiddleware = require('./middlewares/index')
 const usersMiddleware = require('./middlewares/users/index')
@@ -22,6 +22,8 @@ app.use(cookieParser())
 
 app.use('/', indexMiddleware)
 app.use('/users', usersMiddleware)
+
+const swaggerDocument = YAML.load('./docs/swagger.yaml')
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.use((err, req, res, next) => {
