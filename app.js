@@ -44,9 +44,8 @@ const options = {
         url: 'https://choosealicense.com/licenses/mit/',
       },
       contact: {
-        name: 'Swagger',
-        url: 'https://swagger.io',
-        email: 'Info@SmartBear.com',
+        name: 'Project Auth Express',
+        url: 'https://api.haidar.dev',
       },
     },
     servers: [
