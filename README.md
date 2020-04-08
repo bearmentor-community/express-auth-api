@@ -58,15 +58,16 @@ Swagger URL: https://api.haidar.dev/docs
 
 | Endpoint              | HTTP     | Description                    |
 | --------------------- | -------- | ------------------------------ |
+| `/`                   | `GET`    | Get index                      |
+| `/users/seed`         | `POST`   | Seed initial users             |
 | `/users/register`     | `POST`   | Register new user              |
 | `/users/login`        | `POST`   | Login to existing user         |
 | `/users/validate`     | `GET`    | Validate user with its token   |
 | `/users/profile`      | `GET`    | Get authenticated user profile |
-| `/users/seed`         | `POST`   | Seed initial users             |
-| `/users`              | `GET`    | Get all users                  |
-| `/users/:id`          | `GET`    | Get one user by id             |
 | `/users/search?name=` | `GET`    | Search user by name            |
+| `/users`              | `GET`    | Get all users                  |
 | `/users`              | `DELETE` | Delete all users               |
+| `/users/:id`          | `GET`    | Get one user by id             |
 | `/users/:id`          | `DELETE` | Delete one user by id          |
 
 ## Scripts
