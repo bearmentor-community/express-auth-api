@@ -47,6 +47,33 @@ module.exports = User
  * @swagger
  *  components:
  *    schemas:
+ *      NewUser:
+ *        type: object
+ *        required:
+ *          - name
+ *          - email
+ *          - password
+ *        properties:
+ *          name:
+ *            type: string
+ *            description: Full name of the user, just alphabets
+ *          email:
+ *            type: string
+ *            format: email
+ *            description: Email for the user, needs to be unique
+ *          password:
+ *            type: string
+ *            description: Password, will be encrypted
+ *        example:
+ *           name: John Doe
+ *           email: john@doe.com
+ *           password: johndoe0
+ */
+
+/**
+ * @swagger
+ *  components:
+ *    schemas:
  *      User:
  *        type: object
  *        required:
