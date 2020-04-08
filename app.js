@@ -6,8 +6,8 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const cors = require('cors')
 
-const swaggerJsdoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
+const swaggerDocument = require('./docs/swagger.json')
 
 const indexMiddleware = require('./middlewares/index')
 const usersMiddleware = require('./middlewares/users/index')
@@ -22,6 +22,7 @@ app.use(cookieParser())
 
 app.use('/', indexMiddleware)
 app.use('/users', usersMiddleware)
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message
@@ -30,36 +31,5 @@ app.use((err, req, res, next) => {
     error: err,
   })
 })
-
-// Swagger set up
-const options = {
-  swaggerDefinition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'Project Auth Express API',
-      version: '1.0.0',
-      description: 'Example API project using Express',
-      license: {
-        name: 'MIT',
-        url: 'https://choosealicense.com/licenses/mit/',
-      },
-      contact: {
-        name: 'Project Auth Express',
-        url: 'https://api.haidar.dev',
-      },
-    },
-    servers: [
-      {
-        url: 'http://localhost:3000/',
-      },
-    ],
-  },
-  apis: ['./middlewares/users/model.js', './middlewares/users/index.js'],
-}
-
-const specs = swaggerJsdoc(options)
-
-app.use('/docs', swaggerUi.serve)
-app.get('/docs', swaggerUi.setup(specs, { explorer: true }))
 
 module.exports = app

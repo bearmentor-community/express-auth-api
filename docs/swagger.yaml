@@ -1,0 +1,263 @@
+swagger: '2.0'
+info:
+  description: 'This is a sample server.'
+  version: '1.0.0'
+  title: 'Project Auth Express'
+  license:
+    name: 'MIT'
+    url: 'https://opensource.org/licenses/MIT'
+host: 'api.haidar.dev'
+basePath: '/'
+tags:
+  - name: 'User'
+    description: 'Operations about user'
+schemes:
+  - 'https'
+  - 'http'
+securityDefinitions:
+  JWT:
+    type: apiKey
+    in: header
+    name: token
+paths:
+  /:
+    get:
+      summary: 'Home index'
+      operationId: 'index'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'successful operation'
+  /users/seed:
+    post:
+      tags:
+        - 'user'
+      summary: 'Creates list of users with given input array'
+      description: ''
+      operationId: 'createUsersWithArrayInput'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'List of user object'
+          required: true
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/NewUser'
+      responses:
+        200:
+          description: 'Successfully seed users'
+  /users/register:
+    post:
+      tags:
+        - 'user'
+      summary: 'Register new user'
+      operationId: 'registerUser'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created user object'
+          required: true
+          schema:
+            $ref: '#/definitions/NewUser'
+      responses:
+        '200':
+          description: 'successful operation'
+  /users/login:
+    post:
+      tags:
+        - 'user'
+      summary: 'Login existing user'
+      operationId: 'loginUser'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Created user object'
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                example: 'haidar@haidar.com'
+              password:
+                type: string
+                example: 'haidarhaidar'
+      responses:
+        200:
+          description: 'successful operation'
+  /users/validate:
+    get:
+      tags:
+        - 'user'
+      summary: 'Validate authenticated user'
+      description: ''
+      operationId: 'validateUser'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'successful operation'
+      security:
+        - JWT: []
+  /users/profile:
+    get:
+      tags:
+        - 'user'
+      summary: 'Get authenticated user profile'
+      description: ''
+      operationId: 'getUserProfile'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'successful operation'
+      security:
+        - JWT: []
+  /users/search:
+    get:
+      tags:
+        - 'user'
+      summary: 'Search user by name'
+      description: ''
+      operationId: 'searchUserByName'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'successful operation'
+      parameters:
+        - name: 'name'
+          in: 'query'
+          description: 'The name keyword to search'
+          required: true
+          type: 'string'
+  /users:
+    get:
+      tags:
+        - 'user'
+      summary: 'Get all users'
+      operationId: 'getAllUsers'
+      produces:
+        - 'application/json'
+      responses:
+        200:
+          description: 'Success'
+    delete:
+      tags:
+        - 'user'
+      summary: 'Delete all sers'
+      operationId: 'deleteALlUsers'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'username'
+          in: 'path'
+          description: 'The name that needs to be deleted'
+          required: true
+          type: 'string'
+      responses:
+        400:
+          description: 'Invalid username supplied'
+        404:
+          description: 'User not found'
+      security:
+        - JWT: []
+  /users/{id}:
+    get:
+      tags:
+        - 'user'
+      summary: 'Get user by id'
+      description: ''
+      operationId: 'getUserById'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'The id that needs to be fetched.'
+          required: true
+          type: 'integer'
+      responses:
+        200:
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: 'Invalid username supplied'
+        404:
+          description: 'User not found'
+    delete:
+      tags:
+        - 'user'
+      summary: 'Delete user'
+      operationId: 'deleteUser'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'id'
+          in: 'path'
+          description: 'The id that needs to be deleted'
+          required: true
+          type: 'integer'
+      responses:
+        400:
+          description: 'Invalid username supplied'
+        404:
+          description: 'User not found'
+      security:
+        - JWT: []
+definitions:
+  NewUser:
+    type: 'object'
+    properties:
+      name:
+        type: 'string'
+        example: 'M Haidar Hanif'
+      email:
+        type: 'string'
+        example: 'haidar@haidar.com'
+      password:
+        type: 'string'
+        example: 'haidarhaidar'
+  User:
+    type: 'object'
+    properties:
+      __v:
+        type: integer
+        example: 0
+      _id:
+        type: string
+        example: '5e8dca8d46afac0017c7786c'
+      id:
+        type: 'integer'
+        format: 'int64'
+        example: 1
+      name:
+        type: string
+        example: 'M Haidar Hanif'
+      email:
+        type: string
+        example: 'haidar@haidar.com'
+      salt:
+        type: string
+        example: 'HIDDEN_SALT'
+      password:
+        type: string
+        example: 'HIDDEN_PASSWORD'
+      createdAt:
+        type: string
+        example: '2020-04-08T14:41:04.685Z'
+      updatedAt:
+        type: string
+        example: '2020-04-08T14:41:04.685Z'
+externalDocs:
+  description: 'Find out more about Swagger'
+  url: 'http://swagger.io'
