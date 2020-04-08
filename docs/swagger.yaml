@@ -9,6 +9,8 @@ info:
 host: 'api.haidar.dev'
 basePath: '/'
 tags:
+  - name: 'Index'
+    description: 'Generic operations'
   - name: 'User'
     description: 'Operations about user'
 schemes:
@@ -18,10 +20,12 @@ securityDefinitions:
   JWT:
     type: apiKey
     in: header
-    name: token
+    name: Authorization
 paths:
   /:
     get:
+      tags:
+        - 'Index'
       summary: 'Home index'
       operationId: 'index'
       produces:
@@ -32,7 +36,7 @@ paths:
   /users/seed:
     post:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Seed inital users data'
       description: ''
       operationId: 'seedUsers'
@@ -44,7 +48,7 @@ paths:
   /users/register:
     post:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Register new user'
       operationId: 'registerUser'
       produces:
@@ -62,7 +66,7 @@ paths:
   /users/login:
     post:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Login existing user'
       operationId: 'loginUser'
       produces:
@@ -87,7 +91,7 @@ paths:
   /users/validate:
     get:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Validate authenticated user'
       description: ''
       operationId: 'validateUser'
@@ -101,7 +105,7 @@ paths:
   /users/profile:
     get:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Get authenticated user profile'
       description: ''
       operationId: 'getUserProfile'
@@ -115,7 +119,7 @@ paths:
   /users/search:
     get:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Search user by name'
       description: ''
       operationId: 'searchUserByName'
@@ -133,7 +137,7 @@ paths:
   /users:
     get:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Get all users'
       operationId: 'getAllUsers'
       produces:
@@ -143,7 +147,7 @@ paths:
           description: 'Got all users'
     delete:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Delete all sers'
       operationId: 'deleteAllUsers'
       produces:
@@ -162,7 +166,7 @@ paths:
   /users/{id}:
     get:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Get user by id'
       description: ''
       operationId: 'getUserById'
@@ -183,7 +187,7 @@ paths:
           description: 'Failed to get. User by id not found'
     delete:
       tags:
-        - 'user'
+        - 'User'
       summary: 'Delete user'
       operationId: 'deleteUserById'
       produces:
@@ -210,6 +214,7 @@ definitions:
         example: 'M Haidar Hanif'
       email:
         type: 'string'
+        format: 'email'
         example: 'haidar@haidar.com'
       password:
         type: 'string'
@@ -232,6 +237,7 @@ definitions:
         example: 'M Haidar Hanif'
       email:
         type: string
+        format: 'email'
         example: 'haidar@haidar.com'
       salt:
         type: string
@@ -241,9 +247,11 @@ definitions:
         example: 'HIDDEN_PASSWORD'
       createdAt:
         type: string
+        format: date
         example: '2020-04-08T14:41:04.685Z'
       updatedAt:
         type: string
+        format: date
         example: '2020-04-08T14:41:04.685Z'
 externalDocs:
   description: 'Find out more about Swagger'
