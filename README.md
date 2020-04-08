@@ -86,7 +86,6 @@ Remember to install and make sure MongoDB is running on your machine.
 
 ```txt
 MONGODB_URI=mongodb://localhost:27017
-MONGODB_DB_NAME=project-auth-express
 JWT_SECRET=this_is_your_secret
 ```
 
@@ -94,7 +93,6 @@ JWT_SECRET=this_is_your_secret
 
 ```
 MONGODB_URI=mongodb://urltomongodb.com:27017
-MONGODB_DB_NAME=project-auth-express
 JWT_SECRET=this_is_your_other_secret
 ```
 
