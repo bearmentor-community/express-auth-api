@@ -5,10 +5,25 @@ const Schema = mongoose.Schema
 // User schema
 const UserSchema = Schema(
   {
-    name: String,
-    email: String,
-    salt: String,
-    password: String,
+    name: {
+      type: String,
+      required: [true, 'Name is required'],
+      min: [2, 'Name is too short'],
+      max: [100, 'Name is too long'],
+    },
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      min: [2, 'Email is too short'],
+    },
+    salt: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: [true, 'Password is required'],
+    },
   },
   {
     timestamps: true,
