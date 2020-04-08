@@ -51,6 +51,8 @@ Visit the live example: https://api.haidar.dev
 
 ## REST API Specification
 
+Swagger URL:
+
 | Endpoint              | HTTP     | Description                    |
 | --------------------- | -------- | ------------------------------ |
 | `/users/register`     | `POST`   | Register new user              |
