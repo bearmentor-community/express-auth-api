@@ -26,7 +26,7 @@ const usersControllers = {
     const result = await User.create(newUser)
 
     // responding is a fast process
-    res.status(200).send({
+    res.status(201).send({
       message: 'User is successfully registered',
       newUser: {
         name: newUser.name,
