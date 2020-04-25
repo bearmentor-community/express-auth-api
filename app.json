@@ -1,7 +1,7 @@
 {
-  "name": "project-auth-express",
-  "description": "Project Example: Auth with Express",
-  "repository": "https://github.com/mhaidarh/project-auth-express",
+  "name": "example-auth-express",
+  "description": "PExample Auth Express",
+  "repository": "https://github.com/azobu-app/example-auth-express",
   "keywords": ["express", "api", "backend"],
   "image": "heroku/nodejs"
 }

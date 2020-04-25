@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   description: 'This is a sample server.'
   version: '1.0.0'
-  title: 'Project Auth Express'
+  title: 'Example Auth Express'
   license:
     name: 'MIT'
     url: 'https://opensource.org/licenses/MIT'

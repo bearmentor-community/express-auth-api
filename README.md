@@ -1,18 +1,15 @@
-# Project Example: Auth with Express
+# Example Auth Express
 
-[![Travis CI](https://travis-ci.org/mhaidarh/project-auth-express.svg?branch=master)](https://travis-ci.org/github/mhaidarh/project-auth-express)
-
-- Visit the live API: https://api.haidar.dev
-- Visit the live documentation: https://api.haidar.dev/docs
+Example Auth API with Express.
 
 ## Links
 
-- Production: https://api.haidar.dev
-  - Docs: https://api.haidar.dev/docs
-- Heroku: https://api-haidar-dev.herokuapp.com
-  - Dashboard: https://dashboard.heroku.com/apps/api-haidar-dev
-- Google App Engine: https://api-haidar-dev.REGION.r.appspot.com
-- Amazon EBS: https://api-haidar-dev.example.com
+- Production: https://example-auth-express.azobu.app
+  - Documentation: https://example-auth-express.azobu.app/docs
+- Heroku: https://azobu-example-auth-express.herokuapp.com
+  - Dashboard: https://dashboard.heroku.com/apps/azobu-example-auth-express
+- Google App Engine: https://azobu-example-auth-express.REGION.r.appspot.com
+- Amazon EBS: https://azobu-example-auth-express.example.com
 
 ## Stack
 

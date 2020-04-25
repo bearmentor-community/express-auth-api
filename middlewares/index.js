@@ -3,8 +3,8 @@ const router = express.Router()
 
 router.get('/', (req, res, next) => {
   res.status(200).send({
-    message: `Project Auth Express`,
-    documentation: `https://api.haidar.dev/docs`,
+    message: `Example Auth Express by Azobu App`,
+    documentation: `/docs`,
   })
 })
 
