@@ -67,7 +67,7 @@ Swagger URL: https://api.haidar.dev/docs
 | `/users/:id`          | `GET`    | Get one user by id             |
 | `/users/:id`          | `DELETE` | Delete one user by id          |
 
-## Scripts
+## Usage
 
 ### Setup Environment Variables
 
@@ -116,6 +116,14 @@ yarn start
 
 ```sh
 yarn test
+```
+
+### Seed Initial Data
+
+Run Postman collection.
+
+```sh
+
 ```
 
 ### Debug Production on Heroku
