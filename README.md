@@ -5,7 +5,6 @@ Example Auth API with Express.
 ## Links
 
 - Production: https://example-auth-express.azobu.app
-  - Documentation: https://example-auth-express.azobu.app/docs
 - Heroku: https://azobu-example-auth-express.herokuapp.com
   - Dashboard: https://dashboard.heroku.com/apps/azobu-example-auth-express
 - Google App Engine: https://azobu-example-auth-express.REGION.r.appspot.com
@@ -22,7 +21,6 @@ Example Auth API with Express.
 - Debug
 - Morgan
 - Postman
-- Swagger
 - MongoDB, Mongoose, and mLab
   - Later: MySQL, Sequelize, and MySQL instance
 - Heroku
@@ -51,14 +49,20 @@ Example Auth API with Express.
 
 ## REST API Specification
 
-Swagger URL: https://api.haidar.dev/docs
+### Auth
+
+| Endpoint         | HTTP   | Description               |
+| ---------------- | ------ | ------------------------- |
+| `/auth/register` | `POST` | Register new user         |
+| `/auth/login`    | `POST` | Login to existing user    |
+| `/auth/logout`   | `POST` | Logout the logged in user |
+
+### Users
 
 | Endpoint              | HTTP     | Description                    |
 | --------------------- | -------- | ------------------------------ |
 | `/`                   | `GET`    | Get index                      |
 | `/users/seed`         | `POST`   | Seed initial users             |
-| `/users/register`     | `POST`   | Register new user              |
-| `/users/login`        | `POST`   | Login to existing user         |
 | `/users/validate`     | `GET`    | Validate user with its token   |
 | `/users/profile`      | `GET`    | Get authenticated user profile |
 | `/users/search?name=` | `GET`    | Search user by name            |
@@ -131,10 +135,6 @@ Run Postman collection.
 ```sh
 heroku logs --tail -a api-haidar-dev
 ```
-
-## References
-
-- [Swagger: Time to document that Express API you built!](https://levelup.gitconnected.com/swagger-time-to-document-that-express-api-you-built-9b8faaeae563)
 
 ## License
 
