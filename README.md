@@ -49,27 +49,33 @@ Example Auth API with Express.
 
 ## REST API Specification
 
+### Index
+
+| Endpoint | HTTP  | Description     |
+| -------- | ----- | --------------- |
+| `/`      | `GET` | Get index title |
+
 ### Auth
 
-| Endpoint         | HTTP   | Description               |
-| ---------------- | ------ | ------------------------- |
-| `/auth/register` | `POST` | Register new user         |
-| `/auth/login`    | `POST` | Login to existing user    |
-| `/auth/logout`   | `POST` | Logout the logged in user |
+| Endpoint         | HTTP   | Description                  |
+| ---------------- | ------ | ---------------------------- |
+| `/auth/register` | `POST` | Register new user            |
+| `/auth/login`    | `POST` | Login to existing user       |
+| `/auth/logout`   | `POST` | Logout the logged in user    |
+| `/auth/validate` | `POST` | Check if user token is valid |
 
 ### Users
 
 | Endpoint              | HTTP     | Description                    |
 | --------------------- | -------- | ------------------------------ |
-| `/`                   | `GET`    | Get index                      |
 | `/users/seed`         | `POST`   | Seed initial users             |
-| `/users/validate`     | `GET`    | Validate user with its token   |
+| `/users`              | `GET`    | Get all users                  |
+| `/users/:id`          | `GET`    | Get user by id                 |
+| `/users/:id`          | `PUT`    | Update user by id              |
+| `/users/:id`          | `DELETE` | Delete user by id              |
+| `/users`              | `DELETE` | Delete all users               |
 | `/users/profile`      | `GET`    | Get authenticated user profile |
 | `/users/search?name=` | `GET`    | Search user by name            |
-| `/users`              | `GET`    | Get all users                  |
-| `/users`              | `DELETE` | Delete all users               |
-| `/users/:id`          | `GET`    | Get one user by id             |
-| `/users/:id`          | `DELETE` | Delete one user by id          |
 
 ## Usage
 
