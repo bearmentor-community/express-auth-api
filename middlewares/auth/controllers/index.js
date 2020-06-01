@@ -5,6 +5,8 @@ const auth = {
   isRegistered: require('./isRegistered'),
   isPasswordCorrect: require('./isPasswordCorrect'),
   isAuthenticated: require('./isAuthenticated'),
+  isAuthorized: require('./isAuthorized'),
+  isAuthorizedAdmin: require('./isAuthorizedAdmin'),
 }
 
 module.exports = auth

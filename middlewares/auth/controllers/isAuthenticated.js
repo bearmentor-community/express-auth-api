@@ -11,6 +11,7 @@ const isAuthenticated = async (req, res, next) => {
       const decodedAccessToken = await jsonwebtoken.verifyToken(accessToken)
 
       if (decodedAccessToken) {
+        req.accessToken = accessToken
         req.decodedAccessToken = decodedAccessToken
         next()
       } else {
