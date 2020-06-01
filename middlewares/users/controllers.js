@@ -1,92 +1,11 @@
 const User = require('./model')
 
 const bcrypt = require('../../utils/bcrypt')
-const jwt = require('../../utils/jwt')
+const jwt = require('../../utils/jsonwebtoken')
 
 const seedUsersData = require('./seed.json')
 
 const usersControllers = {
-  //////////////////////////////////////////////////////////////////////////////
-  // REGISTER NEW USER
-  register: async (req, res) => {
-    // using encryptPassword is a slow process, so we use await
-    // then destructure salt & password from encryptPassword() returned value
-    const { salt, encryptedPassword } = await bcrypt.encryptPassword(
-      req.body.password
-    )
-
-    // creating an object is a fast process
-    const newUser = {
-      name: req.body.name, // from body
-      email: req.body.email, // from body
-      salt: salt, // NOT from body, from helpers
-      password: encryptedPassword, // NOT from body, from helpers
-    }
-    // creating a user in the database is a slow process
-    const result = await User.create(newUser)
-
-    // responding is a fast process
-    res.status(201).send({
-      message: 'User is successfully registered',
-      newUser: {
-        name: newUser.name,
-        email: newUser.email,
-      },
-      result: {
-        ...result._doc,
-        salt: 'HIDDEN_SALT',
-        password: 'HIDDEN_PASSWORD',
-      },
-    })
-  },
-
-  //////////////////////////////////////////////////////////////////////////////
-  // LOGIN WITH REGISTERED USER
-  login: async (req, res) => {
-    // get email & password from body
-    const user = {
-      email: req.body.email,
-      password: req.body.password,
-    }
-
-    // search for matched user's email
-    const foundUser = await User.findOne(
-      { email: user.email } // search for email
-    )
-
-    // only continue if user is found
-    if (foundUser) {
-      // slow process to determine password is matched
-      // authenticated result is either true or false
-      const authenticated = await bcrypt.comparePassword(
-        user.password,
-        foundUser.password
-      )
-
-      if (authenticated) {
-        // create token with JWT
-        const token = await jwt.createToken(foundUser)
-
-        res.status(200).send({
-          message: 'Login successful',
-          token: token,
-          user: {
-            name: foundUser.name,
-            email: foundUser.email,
-          },
-        })
-      } else {
-        res.status(401).send({
-          message: 'Login failed because password is wrong',
-        })
-      }
-    } else {
-      res.status(401).send({
-        message: 'Login failed because user with that email is not found',
-      })
-    }
-  },
-
   //////////////////////////////////////////////////////////////////////////////
   // LOGOUT WITH LOGGED IN USER
   logout: async (req, res) => {
@@ -223,6 +142,7 @@ const usersControllers = {
 
     if (decodedUser.sub) {
       const user = await User.findById(decodedUser.sub, '-password -salt')
+
       res.status(200).send({
         message: 'User is valid with verified token',
         tokenIsExist: true,
@@ -247,13 +167,13 @@ const usersControllers = {
           const { salt, encryptedPassword } = await bcrypt.encryptPassword(
             user.password
           )
-          const newUser = {
+          const user = {
             name: user.name,
             email: user.email,
             salt: salt,
             password: encryptedPassword,
           }
-          await User.create(newUser)
+          await User.create(user)
         }
       })
 
