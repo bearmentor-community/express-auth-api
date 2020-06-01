@@ -1,0 +1,46 @@
+### Get index
+GET http://localhost:3000
+
+### Register new user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "name": "Haidar",
+  "email": "haidar@example.com",
+  "password": "haidar_password"
+}
+
+### Login to registered user with correct password
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "haidar@example.com",
+  "password": "haidar_password"
+}
+
+### Login with unregistered user
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "unknown@example.com",
+  "password": "unknown_password"
+}
+
+### Login to registered user with incorrect password
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "haidar@example.com",
+  "password": "wrong_password"
+}
+
+### Logout the authenticated user
+POST http://localhost:3000/auth/logout
+Content-Type: application/json
+Authorization: Bearer ey.ey.abc
+
+
