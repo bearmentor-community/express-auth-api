@@ -3,7 +3,7 @@ const router = express.Router()
 
 router.get('/', (req, res, next) => {
   res.status(200).send({
-    message: `Example Auth Express`,
+    message: `Auth Express Mongoose`,
     author: `Azobu App`,
     url: `${req.protocol}://${req.get('host')}`,
   })
